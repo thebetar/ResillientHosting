@@ -3,6 +3,8 @@ services:
         build: server
         deploy:
             replicas: 3
+            restart_policy:
+                condition: on-failure
         networks:
             - backend
     nginx:

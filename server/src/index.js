@@ -9,10 +9,13 @@ app.get('/', (req, res) => {
     res.send(html.replace('{{SERVER_NAME}}', process.env.HOSTNAME || 'Server'));
 });
 
-app.get('/crash', (req, res) => {
+app.get('/kill', (req, res) => {
+    res.send('Killing the server');
+
+    console.log(`[${process.env.HOSTNAME}] Killing the server`);
     process.exit(1);
 });
 
 app.listen(3000, () => {
-    console.log('Server is running on port 3000 🚀');
+    console.log(`[${process.env.HOSTNAME}] Server is running on port 3000 🚀`);
 });
