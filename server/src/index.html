@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="p-4">
+        <div class="text-4xl font-semibold">
+            Test page from docker
+        </div>
+        <div class="text-base">
+            This page has been served from a docker container running in docker compose with multiple images and restart capabilities.
+            The name of this container is <span class="font-semibold">{{SERVER_NAME}}</span>.
+        </div>
+    </div>
+</body>
+</html>

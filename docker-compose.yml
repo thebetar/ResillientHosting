@@ -1,0 +1,18 @@
+services:
+    express:
+        build: server
+        deploy:
+            replicas: 3
+        networks:
+            - backend
+    nginx:
+        build: proxy
+        ports:
+            - '8080:80'
+        networks:
+            - backend
+        depends_on:
+            - express
+networks:
+    backend:
+        driver: bridge
