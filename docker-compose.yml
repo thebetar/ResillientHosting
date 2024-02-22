@@ -3,8 +3,10 @@ services:
         build: server
         deploy:
             replicas: 2
-            # restart_policy:
-            #     condition: on-failure
+            restart_policy:
+                condition: on-failure
+        volumes:
+            - ./data/data.txt:/app/data/data.txt
         networks:
             - backend
         environment:
@@ -13,8 +15,10 @@ services:
         build: server
         deploy:
             replicas: 2
-            # restart_policy:
-            #     condition: on-failure
+            restart_policy:
+                condition: on-failure
+        volumes:
+            - ./data/data.txt:/app/data/data.txt
         networks:
             - backend
         environment:
