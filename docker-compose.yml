@@ -1,12 +1,24 @@
 services:
-    express:
+    express-3000:
         build: server
         deploy:
-            replicas: 3
-            restart_policy:
-                condition: on-failure
+            replicas: 2
+            # restart_policy:
+            #     condition: on-failure
         networks:
             - backend
+        environment:
+            - PORT=3000
+    express-4000:
+        build: server
+        deploy:
+            replicas: 2
+            # restart_policy:
+            #     condition: on-failure
+        networks:
+            - backend
+        environment:
+            - PORT=4000
     nginx:
         build: proxy
         ports:
@@ -14,7 +26,8 @@ services:
         networks:
             - backend
         depends_on:
-            - express
+            - express-3000
+            - express-4000
 networks:
     backend:
         driver: bridge

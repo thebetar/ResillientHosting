@@ -16,6 +16,8 @@ app.get('/kill', (req, res) => {
     process.exit(1);
 });
 
-app.listen(3000, () => {
-    console.log(`[${process.env.HOSTNAME}] Server is running on port 3000 🚀`);
+const port = process.env.PORT || 3000;
+
+app.listen(port, () => {
+    console.log(`[${process.env.HOSTNAME}] Server is running on port ${port} 🚀`);
 });
